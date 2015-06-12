@@ -1,7 +1,7 @@
 <%
 Set Conn= Server.CreateObject("ADODB.connection")
 Conn.Open = "dsn=mantencion;uid=invitado;pwd=pass;"
-SQL = "SELECT RUT, NOMBRE, MAIL " & _
+SQL = "SELECT RUT, NOMBRE, MAIL, DIRECCION " & _
 			"FROM mantencion.dbo.alumnos " & _
 			" ORDER BY NOMBRE"
 		Set REG1 = Conn.execute(SQL)
@@ -55,6 +55,10 @@ SQL = "SELECT RUT, NOMBRE, MAIL " & _
                 <div align="left"><font face="Arial, Helvetica, sans-serif" size="1">
 					<%=REG1("MAIL")%>
 				</font></div>
+ 		<td width="34%" valign=top> 
+                <div align="left"><font face="Arial, Helvetica, sans-serif" size="1">
+					<%=REG1("DIRECCION")%>
+		</font></div>
               </td>
             </tr>
             <% 
