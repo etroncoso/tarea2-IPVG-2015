@@ -3,18 +3,20 @@ Conn.Open = "dsn=mantencion;uid=invitado;pwd=pass;"
 	RUT = REQUEST.QUERYSTRING("RUT") 		
 	NOMBRES = REQUEST.QUERYSTRING("NOMBRES")
 	MAIL = REQUEST.QUERYSTRING("MAIL")
-	
+	DIRECCION = REQUEST.QUERYSTRING("DIRECCION")	
+
 	if (RUT<>"") then
 	
 	
 	SQL = "INSERT INTO mantencion.dbo.alumnos " & _
-				"(RUT, NOMBRES, MAIL) " & _
+				"(RUT, NOMBRES, MAIL, DIRECCION) " & _
 				"VALUES " & _
-				"('" & RUT & "', '" & NOMBRES & "', '" & CORREO & "')" 
+				"('" & RUT & "', '" & NOMBRES & "', '" & MAIL & "')" 
 			Conn.execute(SQL)
 			RUT = ""
 			NOMBRES = ""
 			MAIL = ""
+			DIRECCION = ""
 	end if
 %>
 
@@ -39,7 +41,7 @@ function volver()
              
     <tr align="center" valign="middle"> 
         <td height="25" colspan="6" nowrap bordercolor="#FFFFFF" bgcolor="#FFFFFF"><b><font face="Verdana,Arial, Helvetica, sans-serif" size="1">RUT 
-                <input type="text" name="RUT" maxlength="5" size="15" class="texto">
+                <input type="number" name="RUT" maxlength="5" size="15" class="texto">
                 <font face="Verdana, Arial, Helvetica, sans-serif">NOMBRES</font> 
                 <input type="text" name="NOMBRES" size="60" maxlength="50" class="texto">
                 </font></b></td>
@@ -47,7 +49,7 @@ function volver()
             <tr align="center" valign="middle">
               <td height="25" colspan="6" nowrap bordercolor="#FFFFFF" bgcolor="#FFFFFF"><b><font face="Arial, Helvetica, sans-serif" size="1"><font face="Verdana, Arial, Helvetica, sans-serif">MAIL</font> 
                 <input type="text" name="MAIL" size="60" maxlength="50" class="texto">              
-                
+                <input type="text" name="DIRECCION" size="60" maxlength="50" class="texto">
                 </font></b></td>
             </tr>
           </table>
